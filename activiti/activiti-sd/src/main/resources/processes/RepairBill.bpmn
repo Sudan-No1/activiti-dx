@@ -16,13 +16,13 @@
     <sequenceFlow id="flow4" name="通过" sourceRef="usertask3" targetRef="exclusivegateway1">
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[#{outcome=='同意'}]]></conditionExpression>
     </sequenceFlow>
-    <userTask id="usertask4" name="归口部门审核" activiti:assignee="${usertask4}" activiti:formKey="/RepairBill/approvalAdd"></userTask>
+    <userTask id="usertask4" name="归口部门审核" activiti:assignee="${usertask4}" activiti:formKey="/RepairBill/approvalForm"></userTask>
     <sequenceFlow id="flow5" sourceRef="exclusivegateway1" targetRef="usertask4"></sequenceFlow>
-    <userTask id="usertask5" name="综合处处长审核" activiti:assignee="${usertask5}" activiti:formKey="/RepairBill/approvalForm"></userTask>
+    <userTask id="usertask5" name="综合处处长审核" activiti:assignee="${usertask5}" activiti:formKey="/RepairBill/form"></userTask>
     <sequenceFlow id="flow6" name="通过" sourceRef="usertask4" targetRef="usertask5">
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[#{outcome=='同意'}]]></conditionExpression>
     </sequenceFlow>
-    <userTask id="usertask6" name="投资处处长审核" activiti:assignee="${usertask6}" activiti:formKey="/RepairBill/approvalForm"></userTask>
+    <userTask id="usertask6" name="投资处处长审核" activiti:assignee="${usertask6}" activiti:formKey="/RepairBill/form"></userTask>
     <sequenceFlow id="flow7" name="通过" sourceRef="usertask5" targetRef="usertask6">
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[#{outcome=='同意'}]]></conditionExpression>
     </sequenceFlow>

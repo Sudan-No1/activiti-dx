@@ -193,12 +193,13 @@ public class WorkflowServiceImpl implements WorkflowService {
     		}
     	}
 		bill.put("ProcessStatus", "审核中");
+		String description = (String) bill.get("Description");
 		billDao.updateBillState(billName, bill);
 		String key = bill.get("IdClass").toString().replace("\"", "");
 		Map<String,Object> gourpInfo =userDao.getGroupInfo(applicant);
 		String unit_code = (String)gourpInfo.get("unit_code");
 		Map<String,Object> map = userDao.findApprover(unit_code);
-		List<Map<String,Object>> list = userDao.getAssingeeList("房屋调配流程");
+		List<Map<String,Object>> list = userDao.getAssingeeList(description.substring(4, description.length()-3));
 		for (Map<String, Object> record : list) {
 			String taskname = (String)record.get("TaskName");
 			String assignee = (String)record.get("Assignee");
