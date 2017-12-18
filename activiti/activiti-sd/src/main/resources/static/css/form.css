@@ -1,0 +1,48 @@
+.emMark{
+	display: inline-block;
+	height: 18px;
+	margin: 8px 0;
+	font-size: 18px;
+	color: red;
+}
+
+.form-inp-static{
+    border: 0;
+    min-height: 34px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin-bottom: 0;
+    width: 100%;
+}
+		
+/*文件上传样式*/
+.attachText{
+    position: relative;
+    overflow: hidden;
+}
+
+.attachText input[type='file']{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 34px;
+    opacity: 0;
+    z-index: 20;
+}
+
+.attachText .btn .glyphicon{
+    margin-right: 5px;
+    text-align: center;
+}
+
+.panel .table tbody tr td a{
+	margin-right: 5px;
+}
+
+.modal table tbody tr td label{
+	width: 100%;
+	display: block;
+	margin-bottom: 0;
+}
+
+

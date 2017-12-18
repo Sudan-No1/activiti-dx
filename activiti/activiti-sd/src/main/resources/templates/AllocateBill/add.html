@@ -4,24 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/Normalize.css"/>
     <link rel="stylesheet" href="/css/bootstrap.css"/>
-    <link rel="stylesheet" href="/css/common.css"/>
-    <style>
-        .emMark{
-            display: inline-block;
-            height: 18px;
-            margin: 8px 0;
-            font-size: 18px;
-            color: red;
-        }
-        .form-inp-static{
-		    border: 0;
-		    min-height: 34px;
-		    padding-top: 7px;
-		    padding-bottom: 7px;
-		    margin-bottom: 0;
-		    width: 100%;
-		}
-    </style>
+    <link rel="stylesheet" href="/css/form.css"/>
     <title>add</title>
 </head>
 <body>
@@ -155,7 +138,7 @@
                                 <span class="input-group-btn">
                                     <a class="btn btn-default"
                                        data-toggle="modal"
-                                       data-target="#roomNameList">
+                                       data-target=".modal">
                                         <span class="glyphicon glyphicon-list"></span>
                                     </a>
                                 </span>
@@ -222,11 +205,11 @@
         </div>
     </div>
     
-      <div class="modal fade" id="roomNameList" tabindex="-1" role="dialog" aria-labelledby="tasksLabel">
+      <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="tasksLabel">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <a href="javaScript:;" class="close" data-dismiss="modal" aria-label="Close">
+                    <a class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </a>
                     <h4 class="modal-title">请选择调配房间！</h4>
@@ -287,6 +270,7 @@
     <script src="/js/bootstrap.js"></script>
     <script src="/js/jqPaginator.js"></script>
     <script src="/js/form/allocateBill.js"></script>
+    <script src="/js/homeView.js"></script>
     <script th:inline="javascript">
     function checkout(){
     	var changeUser = ($("input[name='UseUint']").val()==[[${unit}]]);

@@ -46,27 +46,27 @@ function fn(str){
                     var tags1 = "";
                     for(var j = (num-1)*10; j<=str.length-1; j++){
                         var item = str[j];
-                        tags1 += '<tr><td><input type="radio" name="roomInfo" value="'+j+'" /></td>'
-                        		+'<td>'+item.BuildingNumber+'</td>'
-                        		+'<td>'+item.RoomNumber+'</td>'
-                        		+'<td>'+item.RoomLocation+'</td>'
-                        		+'<td>'+item.FloorNmuber+'</td></tr>';
+                        tags1 += '<tr><td><input type="radio" name="roomInfo" value="'+j+'" id="roomInfo'+j+'" /></td>'
+                        		+'<td><label for="roomInfo'+j+'">'+item.BuildingNumber+'</label></td>'
+                        		+'<td><label for="roomInfo'+j+'">'+item.RoomNumber+'</label></td>'
+                        		+'<td><label for="roomInfo'+j+'">'+item.RoomLocation+'</label></td>'
+                        		+'<td><label for="roomInfo'+j+'">'+item.FloorNmuber+'</label></td></tr>';
                     }
                     $('.modal .table tbody').empty().append(tags1);
                 }else{
                     tags1 = "";
                     for(var q = (num-1)*10; q<=num*10-1; q++){
                         item = str[q];
-                        tags1 += '<tr><td><input type="radio" name="roomInfo" value="'+q+'" /></td>'
-                        +'<td>'+item.BuildingNumber+'</td>'
-                		+'<td>'+item.RoomNumber+'</td>'
-                		+'<td>'+item.RoomLocation+'</td>'
-                		+'<td>'+item.FloorNmuber+'</td></tr>';
+                        tags1 += '<tr><td><input type="radio" name="roomInfo" value="'+q+'" id="roomInfo'+q+'" /></td>'
+                        +'<td><label for="roomInfo'+q+'">'+item.BuildingNumber+'</label></td>'
+                		+'<td><label for="roomInfo'+q+'">'+item.RoomNumber+'</label></td>'
+                		+'<td><label for="roomInfo'+q+'">'+item.RoomLocation+'</label></td>'
+                		+'<td><label for="roomInfo'+q+'">'+item.FloorNmuber+'</label></td></tr>';
                     }
                     $('.modal .table tbody').empty().append(tags1);
                 }
             }else{
-                alert("很抱歉，没有数据")
+                console.log("没有数据");
             }
             if(str.length/10 <=1){
                 $("#modalListPages").hide();
