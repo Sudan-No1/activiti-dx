@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/css/comment.css"/>
+    <script src="/js/jquery-3.2.1.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <title>房屋房修需求-部门经理意见</title>
+</head>
+<body>
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">房屋房修需求</h3>
+        </div>
+        <div class="panel-body">
+            <!--表单-->
+            <h3>申请信息</h3>
+            <form class="form-horizontal">
+                <div class="row">
+                    <div class="form-group col-sm-5">
+                        <label class="col-sm-6 control-label">发起人</label>
+                        <div class="col-sm-6">
+                            <p class="form-control-static" th:text="${bill.Applicant }">张兰</p>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-7">
+                        <label class="col-sm-3 control-label">主要改造内容</label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static" th:text="${bill.Content }">上海市浦东新区张江路789号</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-5">
+                        <label class="col-sm-6 control-label">发起单位</label>
+                        <div class="col-sm-6">
+                            <p class="form-control-static" th:text="${bill.Unit }">上海总部</p>
+                        </div>
+                    </div>
+					<div class="form-group col-sm-7">
+                        <label class="col-sm-3 control-label">改造类型</label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static" th:text="${bill.ReformType }">大修</p>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-5">
+                        <label class="col-sm-6 control-label">发起部门</label>
+                        <div class="col-sm-6">
+                            <p class="form-control-static" th:text="${bill.Department }">网络发展部</p>
+                        </div>
+                    </div>
+					<div class="form-group col-sm-7">
+                        <label class="col-sm-3 control-label">改造面积</label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static" th:text="${bill.ReformArea }">500㎡</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-5">
+                        <label class="col-sm-6 control-label">发起日期</label>
+                        <div class="col-sm-6">
+                            <p class="form-control-static" th:text="${bill.LaunchDate }">2017-11-17</p>
+                        </div>
+                    </div>
+					<div class="form-group col-sm-7">
+                        <label class="col-sm-3 control-label">改造标准</label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static" th:text="${bill.ReformStandard }">1000 元/平方米</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-5">
+                        <label class="col-sm-6 control-label">编号</label>
+                        <div class="col-sm-6">
+                            <p class="form-control-static" th:text="${bill.Description }">2017XXXX294</p>
+                        </div>
+                    </div>
+					<div class="form-group col-sm-7">
+                        <label class="col-sm-3 control-label">改造总费用</label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static" th:text="${bill.ReformTotalCost }">30 万元</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-5">
+                        <label class="col-sm-6 control-label">联系方式</label>
+                        <div class="col-sm-6">
+                            <p class="form-control-static" th:text="${bill.ContactNo }">13945612345</p>
+                        </div>
+                    </div>
+ 				<div class="form-group col-sm-7">
+                        <label class="col-sm-3 control-label">项目经理</label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static" th:text="${bill.ProjectNumber }">主要改造内容改造改造</p>
+                        </div>
+                    </div>
+                </div>
+                   <!--  <div class="form-group col-sm-7">
+                        <label class="col-sm-3 control-label">附件</label>
+                        <div class="col-sm-3">
+                            <p class="form-control-static"  th:text="${bill.Applicant }">主要改造内容.xls</p>
+                        </div>
+                        <div>
+                            <a class="form-control-static"
+                               style="display: inline-block;"
+                               href="javaScript:;"
+                               download="主要改造内容.xls">下载</a>
+                        </div>
+                    </div> 
+
+                </div>-->
+
+                <div class="row">
+                    <div class="form-group col-sm-5">
+                        <label class="col-sm-6 control-label">预算类型</label>
+                        <div class="col-sm-6">
+                            <p class="form-control-static" th:text="${bill.BudgetType}">上海市浦东新区张江路789号</p>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-7">
+                        <label class="col-sm-3 control-label">项目编号</label>
+                        <div class="col-sm-3">
+                            <p class="form-control-static" th:text="${bill.BudgetCost}">上海市浦东新区张江路789号</p>
+                        </div>
+                    </div>
+                </div>
+                
+                  <div class="row">
+                    <div class="form-group col-sm-5">
+                        <label class="col-sm-6 control-label">楼宇名称</label>
+                        <div class="col-sm-6">
+                            <p class="form-control-static" th:text="${bill.ContactNo }">13945612345</p>
+                        </div>
+                    </div>
+ 					<div class="form-group col-sm-7">
+                        <label class="col-sm-3 control-label">预算费用</label>
+                        <div class="col-sm-3">
+                        	<p class="form-control-static" th:text="${bill.BudgetCost }">13945612345</p>
+                        </div>
+                    </div>
+                </div>
+                  <div class="row">
+                    <div class="form-group col-sm-5">
+                        <label class="col-sm-6 control-label">房屋地址</label>
+                        <div class="col-sm-6">
+                            <p class="form-control-static" th:text="${bill.ContactNo }">13945612345</p>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-7">
+                        <label class="col-sm-3 control-label">实际费用</label>
+                        <div class="col-sm-3">
+                        	<p class="form-control-static" th:text="${bill.ActualCost }">13945612345</p>
+                        </div>
+                    </div>
+ 				
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-5">
+                        <label class="col-sm-6 control-label">附件</label>
+                        <div class="col-sm-6">
+                        	<a th:href="@{/fileController/downloadAttachment(Attachment=${bill.Attachment },Path=${bill.Path })}" th:text="${bill.Attachment }" class="form-control-static" ></a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <hr>
+
+            <h3>您的意见</h3>
+            <!--表单-->
+            <form id="approvalAddForm" class="form-horizontal" action="/workflow/submitTask" method="post" >
+				<input type="hidden" id="taskId" name="taskId" th:value="${taskId }" />
+				<input type="hidden" id="id" name="id" th:value="${bill.Id }" /> 
+				<input type="hidden" id="billName" name="billName" value="RepairBill" /> 
+				<div class="row">
+	                <div class="form-group">
+	                    <label class="col-sm-2 control-label">意见</label>
+	                    <div class="col-sm-3">
+	                        <select class="form-control" name="message">
+	                            <option value="" selected>请选择您的意见</option>
+	                            <option value="同意">同意</option>
+	                            <option value="不同意">不同意</option>
+	                        </select>
+	                    </div>
+	                </div>
+	                <div class="form-group">
+	                    <label class="col-sm-2 control-label">送往</label>
+	                    <div class="col-sm-3">
+	                        <select class="form-control"  name="outcome">
+	                            <option value="" selected>请选择送往目标</option>
+								<option value="不同意">送回申请人</option>
+								<option value="同意">送上级审批</option>
+	                        </select>
+	                    </div>
+               		</div> 
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">审核情况说明</label>
+                        <div class="col-sm-7">
+                             <textarea class="form-control"
+                                      id="remarks"
+                                      name="comment"
+                                      rows="3"
+                                      placeholder="需求情况说明"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                	<div class="col-sm-2" ></div>
+                    <div class="col-sm-2">
+                    		<input type="submit" value="提交" class="btn btn-default" >
+                    </div>
+                </div>
+            </form>
+            
+            <hr>
+
+            <h3>审批记录</h3>
+            <table class="table table-hover table-bordered" style="width:95%;margin:15px auto">
+            	<thead>
+            		<tr class="info">
+            		<th width="10%">审批人</th>
+            		<th width="20%">审批时间</th>
+            		<th>审批意见</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr th:each="comment: ${commentList}" >
+            			<td th:text="${comment.userId }"></td>	
+            			<td th:text="${#dates.format(comment.time, 'yyyy-MM-dd HH:mm:ss')}"></td>	
+            			<td th:text="${comment.fullMessage }"></td>	
+            		</tr>
+            	</tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
