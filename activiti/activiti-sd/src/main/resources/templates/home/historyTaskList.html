@@ -72,6 +72,15 @@
 </main>
 
 
+<!--弹窗-->
+<div class="modal fade"
+		tabindex="-1"
+		role="dialog">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content"></div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!--/.modal-->
+
 <script src="/js/jquery-3.2.1.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/util.js"></script>
@@ -87,6 +96,21 @@
 	function getDataChange(currentPage){
 	    getData(currentPage, 10, '#historyTaskListPage', '/workflow/queryHistoryTaskList', historyTaskListData);
 	};
+	
+	function formViewModal(key){
+		function bodyStr(){
+			viewFormInfo(key);
+		}
+		modalShow("查看表单信息", false, "view", bodyStr);
+	};
+	
+	function viewExamineRecordModal(key){
+		function bodyStr(){
+			viewExamineRecord(key);
+		}
+		modalShow("查看审批记录", false, "view", bodyStr);
+	};
+
 
 </script>
 </body>

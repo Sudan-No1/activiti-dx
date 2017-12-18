@@ -27,7 +27,7 @@ function getData(currentPage, pageSize, labelCont, url, func){
     })
 }
 
-//drawing页面list
+//drawing-list
 function drawingData(str){
     if(str.length > 0){
         var tags1 = "";
@@ -41,7 +41,7 @@ function drawingData(str){
     }
 }
 
-//workflow页面list
+//workflow-list
 function workflowA(str){
 	var tags1 = "";
 	var item;
@@ -66,7 +66,7 @@ function workflowB(str){
 	$("article #workflowDefined .table tbody").append(tags1);
 }
 
-//bill/list页面list
+//bill/list-list
 function billListData(str){
 	var tags = "";
 	var tag1 = "";
@@ -99,12 +99,12 @@ function billListData(str){
 	$("article .table tbody").append(tags);
 }
 
-//taskList页面list
+//taskList-list
 function taskListData(str){
 	var tags = "";
 	var taskType = "";
 	var item;
-	console.log(str);
+//	console.log(str);
 	for(var i = 0; i<=str.list.length-1; i++){
 		item = str.list[i];
 		if(item.taskFormKey.split("/")[1] == "AllocateBill"){
@@ -125,23 +125,23 @@ function taskListData(str){
 	$("article .table tbody").append(tags);
 }
 
-//historyTaskList页面list
+//historyTaskList-list
 function historyTaskListData(str){
 	var tags = "";
 	var billDescription = "";
 	var item;
-	console.log(str);
+//	console.log(str);
 	for(var i = 0; i<=str.list.length-1; i++){
 		item = str.list[i];
-		if(item.businessKey.split("/")[1] == "AllocateBill"){
+		if(item.businessKey.split(".")[0] == "AllocateBill"){
 			billDescription = "房屋调配";
 		}
 		tags += "<tr><td>" + billDescription + 
 		"</td><td>" + item.currentUser + 
 		"</td><td>" + formatDateTime(item.startTime) +
 		"</td><td>" +
-		"<a data-toggle='modal' data-target='.modal' onclick='viewForminfo(" + item.businessKey + ")'>查看表单信息</a>" +
-		"<a data-toggle='modal' data-target='.modal' onclick='viewExamineRecord(" + item.businessKey + ")'>查看审批记录</a>" +
+		"<a data-toggle='modal' data-target='.modal' onclick='formViewModal(\"" + item.businessKey + "\")'>查看表单信息</a>" +
+		"<a data-toggle='modal' data-target='.modal' onclick='viewExamineRecordModal(\"" + item.businessKey + "\")'>查看审批记录</a>" +
 		"</td></tr>";
 	}
 	
@@ -188,6 +188,7 @@ function modalShow(titleVal, footerVal, type, func){
     $(".modal .modal-content form").append(modalFooter);
 }
 
+//billList-查看审核记录
 function recordView(id, billName){
 	var contentStr = '<div class="modal-header">' +
 					'<a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>' +
@@ -198,12 +199,10 @@ function recordView(id, billName){
 		url : "/workflow/viewHisComment?Id=" + id + "&billName=" + billName,
 		dataType : "json",
 		error:function(data){
-            console.log("没有数据");
             var tags = "<div>抱歉，暂时没有记录</div>"
             $(".modal .modal-content .modal-body").append(tags);
         },
 		success : function(str) {
-			console.log(str);
 			var tags = '<table class="table table-hover">' +
 						'<thead><tr>' +
 						'<th width="25%">任务ID</th>' +
@@ -214,7 +213,6 @@ function recordView(id, billName){
 			var item = '';
 			for(var i = 0; i<=str.length-1; i++){
 				item = str[i];
-				console.log(item);
 				tags += '<tr><td>' + item.userId + 
 						'</td><td>'+ formatDateTime(item.time) + 
 						'</td><td>' + item.fullMessage + 
@@ -229,4 +227,81 @@ function recordView(id, billName){
 	});
 }
 
+//历史任务-查看表单信息
+function viewFormInfo(key){
+	console.log(key);
+	var contentStr = '<div class="modal-header">' +
+					'<a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>' +
+					'</div><div class="modal-body"></div>';
+	$(".modal .modal-content").append(contentStr);
+	$.ajax({
+		type : "GET",
+		url : "/billController/queryBill",
+		data:{"businessKey":key},
+		dataType : "json",
+		error:function(data){
+            var tags = "<div>抱歉，暂时没有记录</div>"
+            $(".modal .modal-content .modal-body").append(tags);
+        },
+		success : function(str){
+			tags = "<div class='row'>" +
+            			"<div class='form-group col-sm-6'>" +
+            				"<label class='col-sm-4 control-label'>发起人</label>" +
+            				"<div class='col-sm-8'><p class='form-control-static'>"+ str.Unit+"</p></div>" +
+            			"</div>" +
+            			"<div class='form-group col-sm-6'>" +
+            				"<label class='col-sm-4 control-label'>发起单位</label>" +
+            				"<div class='col-sm-8'><p class='form-control-static'>"+ str.Department+"</p></div>" +
+            			"</div>" +
+            		"</div>" +
+            "<div class='row'><div class='form-group col-sm-6'><label class='col-sm-4 control-label'>发起部门</label><div class='col-sm-8'><p class='form-control-static'>"+ str.LaunchDate+"</p></div></div>" +
+            "<div class='form-group col-sm-6'><label class='col-sm-4 control-label'>发起日期</label><div class='col-sm-8'><p class='form-control-static'>"+ str.BillDescription+"</p></div></div>" +
+            "</div><div class='row'><div class='form-group col-sm-6'><label class='col-sm-4 control-label'>编号</label><div class='col-sm-8'><p class='form-control-static'>"+ str.Description+"</p></div></div>" +
+            "<div class='form-group col-sm-6'><label class='col-sm-4 control-label'>联系人</label><div class='col-sm-8'><p class='form-control-static'>"+ str.Contact+"</p></div></div>" +
+            "</div><div class='row'><div class='form-group col-sm-6'><label class='col-sm-4 control-label'>联系方式</label><div class='col-sm-8'><p class='form-control-static'>"+ str.BudgetType+"</p></div></div>" +
+            "<div class='form-group col-sm-6'><label class='col-sm-4 control-label'>房屋用途</label><div class='col-sm-8'><p class='form-control-static'>"+ str.Purpose+"</p></div></div>" +
+            "</div><div class='row'><div class='form-group col-sm-6'><label class='col-sm-4 control-label'>房屋名称</label><div class='col-sm-8'><p class='form-control-static'>"+ str.Name+"</p></div></div>" +
+            "<div class='form-group col-sm-6'><label class='col-sm-4 control-label'>房屋地址</label><div class='col-sm-8'><p class='form-control-static'>"+ str.Address+"</p></div></div>" +
+            "</div><div class='row'><div class='form-group col-sm-6'><label class='col-sm-4 control-label'>需求情况说明</label><div class='col-sm-8'><p class='form-control-static'>"+ str.DemandRemark+"</p></div></div>" +
+            "<div class='form-group col-sm-6'><label class='col-sm-4 control-label'>房屋名称(实际)</label><div class='col-sm-8'><p class='form-control-static'>"+ str.AuditName+"</p></div></div>" +
+            "</div><div class='row'><div class='form-group col-sm-6'><label class='col-sm-4 control-label'>房屋地址(实际)</label><div class='col-sm-8'><p class='form-control-static'>"+ str.AuditAddress+"</p></div></div>" +
+            "<div class='form-group col-sm-6'><label class='col-sm-4 control-label'>房屋面积</label><div class='col-sm-8'><p class='form-control-static'>"+ str.Area+"</p></div></div>" +
+            "</div><div class='row'><div class='form-group col-sm-6'><label class='col-sm-4 control-label'>审核情况说明</label><div class='col-sm-8'><p class='form-control-static'>"+ str.AuditRemark+"</p></div></div>" +
+            "</div>";
+    $(".modal .modal-body").append(tags);
+		}
+	});
+}
 
+//历史任务-查看审批记录
+function viewExamineRecord(key){
+	console.log(key);
+	var contentStr = '<div class="modal-header">' +
+	'<a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>' +
+	'</div><div class="modal-body"></div>';
+	$(".modal .modal-content").append(contentStr);
+	$.ajax({
+		type : "GET",
+		url : "/workflow/historyComment",
+		data:{"businessKey":key},
+		dataType : "json",
+		error:function(data){
+			var tags = "<div>抱歉，暂时没有记录</div>"
+				$(".modal .modal-content .modal-body").append(tags);
+		},
+		success : function(str){
+            var tags = '<table class="table table-hover"><thead><tr>' +
+            			'<th width="20%">审核人</th>' +
+            			'<th width="30%">审核时间</th>' +
+            			'<th>审核意见</th></tr></thead><tbody>';
+            $.each(str, function(index, item) {
+            	tags += '<tr><td>' + item.userId +
+                		'</td><td>' + formatDateTime(item.time) +
+                		'</td><td>' +  item.fullMessage +
+                		'</td></tr>';
+            });
+            tags +='</tbody></table>';
+            $("#viewExamineRecord .modal-body").append(tags);
+		}
+	});
+}
