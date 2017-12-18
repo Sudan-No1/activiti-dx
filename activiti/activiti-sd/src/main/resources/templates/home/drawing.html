@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head xmlns:th="http://www.thymeleaf.org">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/Normalize.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/pager.css">
+    <title>drawing</title>
+</head>
+<body>
+<header class="clearfix" th:include="/menu :: copy"></header>
+   
+<main class="clearfix">
+	<article class="content pull-right">
+		<div class="searchBar clearfix">
+			<div class="input-group col-lg-9 col-md-9 col-sm-9 pull-left">
+				<input type="text" class="form-control">
+				<span class="input-group-btn">
+					<a href="#" class="btn btn-primary">
+						<span class="glyphicon glyphicon-search"></span>
+					</a>
+				</span>
+			</div>
+
+			<a class="btn btn-info pull-left"
+				data-toggle="modal"
+				data-target=".modal"
+				onclick="modalShow('请上传图纸', true, 'form', drawUploadFunc)">
+				上传
+				<span class="glyphicon glyphicon-share-alt"></span>
+			</a>
+		</div>
+            
+		<hr>
+
+		<div style="padding-left: 15px;padding-right: 15px;">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					图纸列表
+				</div>
+				<div class="panel-body">
+					<table class="table">
+	                    <thead>
+	                    <tr>
+	                        <th width="30%">文件名</th>
+	                        <th width="15%">版本</th>
+							<th width="30%">上传日期</th>
+							<th>操作</th>
+						</tr>
+						</thead>
+						<tbody>
+
+						</tbody>
+					</table>
+					
+					<!--分页-->
+					<div class="pageBox pull-right clearfix">
+						<ul class="pagination pull-left" id="drawpage1">
+						</ul>
+						<div class="pageJump pull-left">
+							<label class="control-label pull-left">跳页到</label>
+							<input type="text" class="pull-left"/>
+							<button type="button" class="button btn btn-primary pull-left">GO</button>
+						</div>
+					</div><!-- /.pageBox -->
+				</div>
+			</div>
+		</div>
+	</article>
+</main>
+
+
+<!--上传弹窗-->
+<div class="modal fade"
+		tabindex="-1"
+		role="dialog">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content"></div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!--/.modal-->
+
+<script src="/js/jquery-3.2.1.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/pager.js"></script>
+<script src="/js/homeView.js"></script>
+<script src="/js/homeData.js"></script>
+<script>
+	/* 导航状态样式 */
+	$("header nav a[href='/drawing']").parent("li").siblings().removeClass("active");
+	$("header nav a[href='/drawing']").parent("li").addClass("active");
+
+    /*显示弹框*/
+	var bodyStr = drawUploadFunc();
+    function drawUploadFunc(){
+        var contentStr = '<form class="form-horizontal" action="/workflow/deploy" method="POST" enctype="multipart/form-data">' +
+						'<div class="modal-header">' +
+						'<a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>' +
+						'</div>'+
+						'<div class="modal-body">' +
+		                '<div class="form-group">' +
+		                '<div class="col-lg-offset-1 col-lg-6 attachText">' +
+		                '<div class="input-group">' +
+		                '<div class="form-control"></div>' +
+		                '<div class="input-group-btn">' +
+		                '<a class="btn btn-default">' +
+		                '<span class="glyphicon glyphicon-folder-open"></span>上传' +
+		                '<input type="file" name="file" class="form-control" id="jobData" onchange="loadFile(this.files[0])" />' +
+		                '</a></div></div></div></div></div></form>';
+		$(".modal .modal-content").append(contentStr);
+    }
+
+    /*上传输入框显示文件名*/
+    function loadFile(file){
+        $(".attachText div.form-control").text(file.name);
+    }
+</script>
+</body>
+</html>

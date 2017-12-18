@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head xmlns:th="http://www.thymeleaf.org">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/Normalize.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/pager.css">
+    <title>room</title>
+</head>
+<body>
+<header class="clearfix" th:include="/menu :: copy"></header>
+
+<main class="clearfix">
+	<aside class="sidebarNav pull-left">
+		<div class="sidebarTitle clearfix">
+            <p class="pull-left">房屋列表</p>
+        </div>
+        <ul class="nav">
+            <li class="active">
+                <a href="#">恒基大厦</a>
+            </li>
+            <li>
+                <a href="#">应氏大厦</a>
+            </li>
+            <li>
+                <a href="#">武胜大楼</a>
+            </li>
+            <li>
+                <a href="#">信息大楼</a>
+            </li>
+
+
+            <li>
+                <a href="#">武胜大楼</a>
+            </li>
+            <li>
+                <a href="#">信息大楼</a>
+            </li>
+            <li>
+                <a href="#">应氏大厦</a>
+            </li>
+            <li>
+                <a href="#">武胜大楼</a>
+            </li>
+            <li>
+                <a href="#">信息大楼</a>
+            </li>
+            <li>
+                <a href="#">应氏大厦</a>
+            </li>
+            <li>
+                <a href="#">应氏大厦</a>
+            </li>
+            <li>
+                <a href="#">应氏大厦</a>
+            </li>
+            <li>
+                <a href="#">应氏大厦</a>
+            </li>
+            <li>
+                <a href="#">武胜大楼</a>
+            </li>
+            <li>
+                <a href="#">信息大楼</a>
+            </li>
+            <li>
+                <a></a>
+            </li>
+        </ul>
+    </aside>
+
+    <article class="content pull-right">
+        <a class="cpsMenuBtn collapseX" onclick="sideMenuCollapse('x')">
+            <span class="glyphicon glyphicon-triangle-left"></span>
+        </a>
+
+        <a class="cpsMenuBtn collapseY" onclick="sideMenuCollapse('y')">
+            <span class="glyphicon glyphicon-triangle-top"></span>
+        </a>
+
+        <iframe src=""
+                frameborder="0"
+                id="3dFrame"
+                class="iframe iframe3D"
+                width="100%" height="100%">
+
+        </iframe>
+    </article>
+</main>
+
+
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/homeView.js"></script>
+<script src="../js/pager.js"></script>
+<script>
+/* 导航状态样式 */
+$("header nav a[href='/room']").parent("li").siblings().removeClass("active");
+$("header nav a[href='/room']").parent("li").addClass("active");
+
+</script>
+</body>
+</html>

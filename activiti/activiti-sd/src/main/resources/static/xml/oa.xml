@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="GB2312"?>
+<synXml>
+	<userAppName>房屋三维可视化</userAppName>应用系统名称
+	<uniCode>M01050</uniCode>应用系统唯一编码
+	<flowData>
+		<tasks>
+			<tasksID>44541111111111111</tasksID>任务事项唯一编码--系统编码+自己id
+			<synType>1</synType>新增：1、更新：2、删除：3
+			<tasksType>1</tasksType>待办：1、在办：2、已办：3
+			<title>申请验收</title>待办事项名称
+			<url>http://10.7.93.84:9080/rpm/acceptance_add_forward?pid=1</url>此待办事项的url地址---将任务改成已办的接口url
+			<createDate>2014-02-27</createDate>待办创建时间  格式：yyyy-MM-dd HH:mm:ss
+			<createUser>linlian</createUser>待办创建人帐号
+			<createUserName>林联</createUserName>待办创建人姓名
+			<createOrg>研究院/中国电信产品开发中心</createOrg>待办创建部门
+			<receiveUser>linlian</receiveUser>待办接收人账户
+			<receiveUserName>林联</receiveUserName>待办接收人姓名
+			<type>0</type>是否已办结 是：1  否：0
+		</tasks>
+	</flowData>
+</synXml>
