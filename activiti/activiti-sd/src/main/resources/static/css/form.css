@@ -45,4 +45,9 @@
 	margin-bottom: 0;
 }
 
+form .form-group div .radio{
+	display: inline-block;
+	margin-right: 20px;
+}
+
 
