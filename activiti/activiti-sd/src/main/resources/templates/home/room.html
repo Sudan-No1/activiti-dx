@@ -19,13 +19,13 @@
         <ul class="nav">
         	
         	<li class="active">
-                <a href="#">信息大楼</a>
+                <a onclick="getBuildingInfo('http://10.4.21.50:1511/vmdb-web?userName=admin&userPassword=admin123&ID=scene-1452751353500-DEMO')">信息大楼</a>
             </li>
             <li>
-                <a href="#">武胜大楼</a>
+                <a onclick="getBuildingInfo('https://www.baidu.com')">武胜大楼</a>
             </li>
             <li>
-                <a href="#">漕溪大楼</a>
+                <a onclick="getBuildingInfo('login')">漕溪大楼</a>
             </li>
             <li>
                 <a href="#">横浜大楼</a>
@@ -44,7 +44,7 @@
             <span class="glyphicon glyphicon-triangle-top"></span>
         </a>
 
-        <iframe src=""
+        <iframe src="http://10.4.21.50:1511/vmdb-web?userName=admin&userPassword=admin123&ID=scene-1452751353500-DEMO"
                 frameborder="0"
                 id="3dFrame"
                 class="iframe iframe3D"
@@ -63,6 +63,15 @@
 $("header nav a[href='/room']").parent("li").siblings().removeClass("active");
 $("header nav a[href='/room']").parent("li").addClass("active");
 
+$("aside ul.nav li").on("click", function(){
+	if($(this).children("a").text() !=""){
+		$(this)
+			.addClass("active")
+			.siblings().removeClass("active");
+		
+	}
+	
+})
 </script>
 </body>
 </html>

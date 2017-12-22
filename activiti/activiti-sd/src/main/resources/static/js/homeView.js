@@ -94,6 +94,14 @@ function sideMenuCollapse(o){
 
 }
 
+//room页面 
+
+function getBuildingInfo(url){
+	var oldUrl = $("#3dFrame").attr("src");
+	if(typeof oldUrl === "undefined" || oldUrl != url){
+		$("#3dFrame").attr("src",url);
+	}
+}
 
 
 
