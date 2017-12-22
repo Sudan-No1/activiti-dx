@@ -246,6 +246,11 @@ article .panel-body .table tbody tr td a{
 }
 
 /*iframe 嵌套*/
+
+main .sidebarNav ul.nav li>a{
+	cursor: pointer;
+}
+
 article .iframe{
     height: 100%;
     position: absolute;
