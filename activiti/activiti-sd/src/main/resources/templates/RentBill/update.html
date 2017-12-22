@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="/css/form.css"/>
     <!--日期控件-->
     <link rel="stylesheet" href="/css/bootstrap-datetimepicker.min.css">
-    <title>RentBill-add</title>
+
+    <title>rentBill-update</title>
+
 </head>
 <body>
     <div class="container">
@@ -20,8 +22,9 @@
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <strong>提示：</strong> 标*为必填项，请认真填写
                 </div>
-                
+
                 <!--表单-->
+
                 <form class="form-horizontal" action="#" method="post">
 
                     <div class="form-group">
@@ -85,7 +88,7 @@
                             <input type="text"
                                    class="form-control"
                                    name="Contact"
-                                   placeholder="联系人姓名" />
+                                   placeholder="联系人" />
                         </div>
                         <span class="emMark">*</span>
                     </div>
@@ -96,7 +99,7 @@
                             <input type="tel"
                                    class="form-control"
                                    name="ContactNo"
-                                   placeholder="联系方式" />
+                                   placeholder="发起人的联系方式" />
                         </div>
                         <span class="emMark">*</span>
                     </div>
@@ -126,13 +129,13 @@
                             <div class="radio">
                                 <label>
                                     <input type="radio" name="yearPlan" value="true"  />
-                                    	是
+                                    是
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
                                     <input type="radio" name="yearPlan" value="false" />
-                                    	否
+                                    否
                                 </label>
                             </div>
                         </div>
@@ -144,13 +147,13 @@
                             <div class="radio">
                                 <label>
                                     <input type="radio" name="rentType" value="businessHall" />
-                                    	营业厅
+                                    营业厅
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
                                     <input type="radio" name="rentType" value="nonBusinessHall" />
-                                    	非营业厅
+                                    非营业厅
                                 </label>
                             </div>
                         </div>
@@ -160,125 +163,15 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">房屋用途</label>
                         <div class="col-sm-4">
-                            <select name="Purpose" class="form-control" th:if="${rentType == 'businessHall'}">
-                                <option value="0" selected disabled>请选择房屋用途</option>
-                                <option value="newSelfSupport">新自营厅</option>
-                                <option value="oldSelfSupport">非新自营厅</option>
-                            </select>
-                            <select name="Purpose" class="form-control" th:if="${rentType == 'nonBusinessHall'}">
-                                <option value="0" selected disabled>请选择房屋用途</option>
-                                <option value="IDC">IDC机房</option>
-								<option value="productNonIDC">非IDC生产性用房</option>
-								<option value="officeNonIDC">非IDC办公后勤用房</option>
+                            <select name="Purpose" class="form-control">
+                                <option value="0">请选择房屋用途</option>
                             </select>
                         </div>
                         <span class="emMark">*</span>
                     </div>
 
-                    <div class="form-group" th:if="${rentNature == 'charterIn'}">
-                        <label class="col-sm-2 control-label">同一区域是否有闲置房屋或出租的同类房屋</label>
-                        <div class="col-sm-3">
-                        	<div class="radio">
-	                        	<label>
-	                        		<input type="radio" name="samePositionIdle" value="true"  />
-	                        		是
-	                        	</label>
-                        	</div>
-                        	<div class="radio">
-	                        	<label>
-	                        		<input type="radio" name="samePositionIdle" value="false" />
-	                        		否
-	                        	</label>
-                        	</div>
-                    	</div>
-                    	<span class="emMark">*</span>
-                    </div>
-                    
-                    <div class="form-group" th:if="${rentNature == 'charterIn'}">
-                        <label class="col-sm-2 control-label">后续经营模式</label>
-                        <div class="col-sm-4">
-                        	<select name="FollowUpMode" class="form-control">
-                        		<option value="0" selected disabled>请选择经营模式</option>
-                        		<option value="selfSelfB">自租自营</option>
-                        		<option value="selfOtherB">自租他营</option>
-                        		<option value="selfSelfU">自租自用</option>
-                        	</select>
-                        </div>
-                        <span class="emMark">*</span>
-                    </div>
-                    
-                    <!-- 租入时输入框 -->
-                    <div class="form-group" th:if="${rentNature == 'charterIn'}">
-                    	<label class="col-sm-2 control-label">房屋名称</label>
-                    	<div class="col-sm-4">
-                    		<input type="text" class="form-control" name="Name" placeholder="房屋名称" />
-                    	</div>
-                    	<span class="emMark">*</span>
-                    </div>
-                    
-                    <!-- 租出时可选择 -->
-                    <div class="form-group" th:if="${rentNature == 'rentOut'}">
-                    	<label class="col-sm-2 control-label">房屋名称</label>
-                    	<div class="input-group col-sm-4 pull-left" style="padding: 0 15px;">
-                    		<input type="text" class="form-control" name="Name" placeholder="房屋名称" />
-                    		<span class="input-group-btn">
-                    			<a class="btn btn-default" data-toggle="modal" data-target=".modal">
-                    				<span class="glyphicon glyphicon-list"></span>
-                    			</a>
-                    		</span>
-                    	</div>
-                    	<span class="emMark">*</span>
-                    </div>
-                    
-                    <div class="form-group">
-                    	<label class="col-sm-2 control-label">房屋地址</label>
-                    	<div class="col-sm-4">
-                    		<input type="text" class="form-control" name="Address" placeholder="房屋地址" />
-                    	</div>
-                    	<span class="emMark">*</span>
-                    </div>
-                    
-                    <div class="form-group">
-                    	<label class="col-sm-2 control-label">房屋租赁面积</label>
-                    	<div class="col-sm-2">
-                    		<input type="text" class="form-control" name="rentArea" />
-                    	</div>
-                    	<div class="col-sm-2">
-                    		<p class="form-control-static"> 平方米 </p>
-                    	</div>
-                    	<span class="emMark">*</span>
-                    </div>
-                    
-                    <div class="form-group">
-                    	<label class="col-sm-2 control-label">房屋租赁单价</label>
-                    	<div class="col-sm-2">
-                    		<input type="text" class="form-control" name="rentUnitPrice" />
-                    	</div>
-                    	<div class="col-sm-2">
-                    		<p class="form-control-static"> 元/平方米/天 </p>
-                    	</div>
-                    	<span class="emMark">*</span>
-                    </div>
-                    
-                    <div class="form-group">
-                    	<label class="col-sm-2 control-label">房屋租赁评估单价</label>
-	                    <div class="col-sm-2">
-	                    	<input type="text" class="form-control" name="rentAssessUnitPrice" />
-	                    </div>
-	                    <div class="col-sm-2">
-	                    	<p class="form-control-static"> 元/平方米/天 </p>
-	                    </div>
-                    </div>
-                    
-                    <!-- 租入时不可填 -->
-                    <div class="form-group" th:if="${rentNature == 'charterIn'}">
-                    	<label class="col-sm-2 control-label">房屋租赁评估单价</label>
-	                    <div class="col-sm-2">
-	                    	<input type="text" class="form-control" name="rentAssessUnitPrice" readonly/>
-	                    </div>
-	                    <div class="col-sm-2">
-	                    	<p class="form-control-static"> 元/平方米/天 </p>
-	                    </div>
+                    <div class="rentOutLabel">
+
                     </div>
 
                     <div class="form-group">
@@ -359,8 +252,7 @@
                                 <a class="btn input-group-addon" type="button">
                                     <span class="glyphicon glyphicon-folder-open"></span>
                                     <input type="file" class="form-control" id="deployAddFile" onchange="loadFile(this.files[0])" />
-                                    	上传
-                                </a>
+                                    上传</a>
                             </div>
                         </div>
 
@@ -371,19 +263,13 @@
                             <a href="javaScript:;" class="btn btn-default">提交</a>
                         </div>
                     </div>
-                    
-                    <input type="hidden" name="billName" value="RentBill">
-                    <input type="hidden" name="Area">
-                    <input type="hidden" name="RoomId">
-                    <input type="hidden" name="BillDescription" value="房屋调配流程">
-                    <input type="hidden" name="conditionName" value="Purpose,flag">
-                    <input id="flag" type="hidden" name="flag" value="" />
-                    
                 </form>
 
             </div>
         </div>
     </div>
+
+
 
     <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="tasksLabel">
         <div class="modal-dialog modal-lg" role="document">
@@ -434,6 +320,7 @@
                         <ul class="pagination" id="modalListPages"></ul>
                     </div><!--/Page-->
 
+
                 </div><!-- /.modal-body-->
 
                 <div class="modal-footer">
@@ -450,6 +337,7 @@
     <script src="/js/bootstrap-datetimepicker.fr.js"></script>
     <script src="/js/rentBillAdd.js"></script>
     <script>
+
         function loadFile(file){
             $(".attachText div").text(file.name);
         }
@@ -477,6 +365,7 @@
             minView: 2,
             forceParse: 0
         });
+
     </script>
 </body>
 </html>
