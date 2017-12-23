@@ -64,13 +64,14 @@ public class WorkflowController{
     
     /** 发布流程	*/
     @RequestMapping(value="/deploy",method=RequestMethod.POST)
-    public String newdeploy(MultipartFile file, 
+    public String newdeploy(MultipartFile file,
+    		String fileName,
     		RedirectAttributes redirectAttributes){
         if (file.isEmpty()){
             redirectAttributes.addFlashAttribute("message", "文件未上传");
             return "redirect:addDeploy";
         }else{
-            workflowService.saveNewDeploye(file);
+            workflowService.saveNewDeploye(file,fileName);
             return "redirect:deployHome";
         }
     }

@@ -46,7 +46,7 @@ public interface WorkflowService
     
     Map<String, Object> findCoordingByTask(String taskId);
     
-    String saveNewDeploye(MultipartFile file);
+    String saveNewDeploye(MultipartFile file, String fileName);
     
     void saveStartProcess(WorkflowBean workflowBean, HttpSession session);
 

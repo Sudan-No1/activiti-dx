@@ -32,13 +32,11 @@ public class CommonController {
 			@RequestParam("Address")String address,
 			@RequestParam("Area")String area,
 			@RequestParam("RoomId")String roomId,
-			@RequestParam("message")String message,
 			@RequestParam("Purpose")String purpose,
 			WorkflowBean workflowBean, 
 			HttpServletRequest request){
 		Long id = workflowBean.getId();
 		String comment = workflowBean.getComment();
-		workflowBean.setComment("【"+message+"】"+comment);
 		if(roomId != null && !"".endsWith(roomId)){
 			Map<String,Object> params = new HashMap<>();
 			params.put("BillName","AllocateBill");		
@@ -62,13 +60,11 @@ public class CommonController {
 			@RequestParam("BudgetCost")String address,
 			@RequestParam("Area")String area,
 			@RequestParam("RoomId")String roomId,
-			@RequestParam("message")String message,
 			@RequestParam("Purpose")String purpose,
 			WorkflowBean workflowBean, 
 			HttpServletRequest request){
 		Long id = workflowBean.getId();
 		String comment = workflowBean.getComment();
-		workflowBean.setComment("【"+message+"】"+comment);
 		if(roomId != null && !"".endsWith(roomId)){
 			Map<String,Object> params = new HashMap<>();
 			params.put("BillName","AllocateBill");		

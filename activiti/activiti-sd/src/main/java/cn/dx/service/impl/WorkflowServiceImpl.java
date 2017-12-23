@@ -70,15 +70,13 @@ public class WorkflowServiceImpl implements WorkflowService {
 
 	/** 部署流程定义 */
 	@Override
-	public String saveNewDeploye(MultipartFile file) {
+	public String saveNewDeploye(MultipartFile file, String fileName) {
 		String message = "";
-
-		String fileName = file.getOriginalFilename();
-
+		
 		try {
 			InputStream fileInputStream = file.getInputStream();
 			Deployment deployment = null;
-			String extension = FilenameUtils.getExtension(fileName);
+			String extension = FilenameUtils.getExtension(file.getOriginalFilename());
 			if (extension.equals("zip") || extension.equals("bar")) {
 				ZipInputStream zip = new ZipInputStream(fileInputStream);
 				deployment = repositoryService.createDeployment()// 创建部署对象
@@ -419,15 +417,17 @@ public class WorkflowServiceImpl implements WorkflowService {
     	}
 		String taskId = workflowBean.getTaskId();
 		String outcome = workflowBean.getOutcome();
-		String message = workflowBean.getComment();
-		if(message != null &&message.contains("【")){
-			
-		}else{
+		String comment = workflowBean.getComment();
+		String message = workflowBean.getMessage();
+		System.out.println(message);
+		if(message == null || message.equals("")){
 			if(outcome.equals("同意")){
-				message = "【同意】  "+message;
+				message = "【同意】";
 			}else if(outcome.equals("不同意")){
-				message = "【不同意】  "+message;
+				message = "【不同意】";
 			}
+		}else{
+			message = "【"+message+"】";
 		}
 		Map<String, Object> currentUser = UserUtil.getUserFromSession(session);
 		String username = (String) currentUser.get("USER_LOGIN_NAME");
@@ -440,6 +440,9 @@ public class WorkflowServiceImpl implements WorkflowService {
 		//添加批注信息
 		String processInstanceId = task.getProcessInstanceId();
 		if(message != null){
+			if(comment != null &&!"".equals(comment)){
+				message += comment;
+			}
 			Authentication.setAuthenticatedUserId(realName);
 			taskService.addComment(taskId, processInstanceId, message);
 		}

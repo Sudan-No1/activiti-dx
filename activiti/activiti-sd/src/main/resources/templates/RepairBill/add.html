@@ -264,7 +264,7 @@
                                 <div class="form-control"></div>
                                 <a class="btn input-group-addon" type="button">
                                     <span class="glyphicon glyphicon-folder-open"></span>
-                                    <input type="file" class="form-control" id="RepairAddFile" onchange="loadFile(this.files[0])" />
+                                    <input type="file" name="file" class="form-control" id="RepairAddFile" onchange="loadFile(this.files[0])" />
                                     	上传</a>
                             </div>
                         </div>
@@ -277,6 +277,7 @@
                     </div>
                     <input type="hidden" name="billName" value=RepairBill><br>
                     <input type="hidden" name="BillDescription" value="房修流程"><br>
+                    <input type="hidden" name="conditionName" value="BudgetType,BudgetRange"><br>
                 </form>
                 
             </div>

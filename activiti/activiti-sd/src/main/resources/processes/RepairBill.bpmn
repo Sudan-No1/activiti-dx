@@ -12,7 +12,7 @@
     <sequenceFlow id="flow3" name="通过" sourceRef="usertask2" targetRef="usertask3">
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[#{outcome=='同意'}]]></conditionExpression>
     </sequenceFlow>
-    <exclusiveGateway id="exclusivegateway1" name="Exclusive Gateway"></exclusiveGateway>
+    <exclusiveGateway id="exclusivegateway1" name="Exclusive Gateway" default="flow5"></exclusiveGateway>
     <sequenceFlow id="flow4" name="通过" sourceRef="usertask3" targetRef="exclusivegateway1">
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[#{outcome=='同意'}]]></conditionExpression>
     </sequenceFlow>
@@ -38,7 +38,9 @@
     <sequenceFlow id="flow11" name="提交申请" sourceRef="usertask7" targetRef="usertask2">
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[${outcome=='提交申请'}]]></conditionExpression>
     </sequenceFlow>
-    <sequenceFlow id="flow12" name="预算内园区维保维修" sourceRef="exclusivegateway1" targetRef="usertask7"></sequenceFlow>
+    <sequenceFlow id="flow12" name="预算内园区维保维修" sourceRef="exclusivegateway1" targetRef="usertask7">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[#{BudgetType=='专项'&&BudgetRange=='预算内'}]]></conditionExpression>
+    </sequenceFlow>
     <sequenceFlow id="flow13" name="退回" sourceRef="usertask3" targetRef="usertask7">
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[#{outcome=='不同意'}]]></conditionExpression>
     </sequenceFlow>

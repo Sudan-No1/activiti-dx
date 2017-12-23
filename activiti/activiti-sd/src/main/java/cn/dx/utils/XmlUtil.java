@@ -11,7 +11,7 @@ import org.jdom.output.XMLOutputter;
 public class XmlUtil {
 	
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		Document document=new Document();
 		Element root = new Element("synXml");
 		root.addContent(new Element("userAppName").setText("房屋三维可视化"));//固定
@@ -45,5 +45,5 @@ public class XmlUtil {
 		}  
 		String sReturn=out.toString();   
 		System.out.println(sReturn);
-	}
+	}*/
 }

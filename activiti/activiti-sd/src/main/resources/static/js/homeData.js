@@ -282,7 +282,7 @@ function viewExamineRecord(key){
 	$.ajax({
 		type : "POST",
 		url : "/workflow/historyComment",
-		data:{"businessKey":key},
+		data:{"businesskey":key},
 		dataType : "json",
 		error:function(data){
 			var tags = "<div>抱歉，暂时没有记录</div>"
@@ -300,7 +300,7 @@ function viewExamineRecord(key){
                 		'</td></tr>';
             });
             tags +='</tbody></table>';
-            $("#viewExamineRecord .modal-body").append(tags);
+            $(".modal .modal-body").append(tags);
 		}
 	});
 }

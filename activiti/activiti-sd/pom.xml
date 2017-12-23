@@ -75,6 +75,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+	      <groupId>cn.dx</groupId>
+	      <artifactId>sso</artifactId>
+	      <version>1.0</version>
+	      <scope>system</scope>
+	      <systemPath>${project.basedir}/lib/sso.jar</systemPath>
+	    </dependency>
 	</dependencies>
 	<build>
 		<resources>
