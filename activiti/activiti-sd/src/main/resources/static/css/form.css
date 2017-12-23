@@ -15,8 +15,8 @@
     width: 100%;
 }
 		
-/*文件上传样式*/
-.attachText{
+/*上传按钮*/
+.attachText a{
     position: relative;
     overflow: hidden;
 }
@@ -27,7 +27,6 @@
     left: 0;
     font-size: 34px;
     opacity: 0;
-    z-index: 20;
 }
 
 .attachText .btn .glyphicon{
@@ -35,6 +34,8 @@
     text-align: center;
 }
 
+
+/* form 文本样式 */
 .panel .table tbody tr td a{
 	margin-right: 5px;
 }

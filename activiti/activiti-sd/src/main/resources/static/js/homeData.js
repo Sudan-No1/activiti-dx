@@ -229,13 +229,12 @@ function recordView(id, billName){
 
 //历史任务-查看表单信息
 function viewFormInfo(key){
-	console.log(key);
 	var contentStr = '<div class="modal-header">' +
 					'<a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>' +
 					'</div><div class="modal-body"></div>';
 	$(".modal .modal-content").append(contentStr);
 	$.ajax({
-		type : "GET",
+		type : "POST",
 		url : "/billController/queryBill",
 		data:{"businessKey":key},
 		dataType : "json",
@@ -281,7 +280,7 @@ function viewExamineRecord(key){
 	'</div><div class="modal-body"></div>';
 	$(".modal .modal-content").append(contentStr);
 	$.ajax({
-		type : "GET",
+		type : "POST",
 		url : "/workflow/historyComment",
 		data:{"businessKey":key},
 		dataType : "json",

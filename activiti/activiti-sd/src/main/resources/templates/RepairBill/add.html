@@ -2,9 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/Normalize.css"/>
     <link rel="stylesheet" href="/css/bootstrap.css"/>
-    <link rel="stylesheet" href="/css/common.css"/>
+    <link rel="stylesheet" href="/css/form.css"/>
     <script src="/js/jquery-3.2.1.js"></script>
     <script src="/js/bootstrap.js"></script>
     <title>房屋房修需求-申请人填写申请表-</title>
@@ -118,6 +117,16 @@
 	                        </select>
 	                    </div>
                		</div> 
+                    <div class="form-group">
+	                    <label class="col-sm-2 control-label">预算范围</label>
+	                    <div class="col-sm-3">
+	                        <select class="form-control"  name="BudgetRange">
+	                            <option value="" selected>请选择预算范围</option>
+								<option value="预算内">预算内</option>
+								<option value="预算外">预算外</option>
+	                        </select>
+	                    </div>
+               		</div> 
                      <div class="form-group">
                         <label class="col-sm-2 control-label">楼宇名称</label>
                         <div class="col-sm-7">
@@ -201,57 +210,63 @@
                         </div>
                         <span class="emMark">*</span>
                     </div>
- 				<div class="form-group">
-                    <label class="col-sm-2 control-label">项目经理</label>
-                    <div class="col-sm-4">
-                        <input type="text"
-                               class="form-control"
-                               name="ProjectNumber"
-                               placeholder="项目经理" />
-                    </div>
-                    <span class="emMark">*</span>
-                </div>
+	 				<div class="form-group">
+	                    <label class="col-sm-2 control-label">项目经理</label>
+	                    <div class="col-sm-4">
+	                        <input type="text"
+	                               class="form-control"
+	                               name="ProjectNumber"
+	                               placeholder="项目经理" />
+	                    </div>
+	                    <span class="emMark">*</span>
+	                </div>
 
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">项目编号</label>
-                    <div class="col-sm-4">
-                        <input type="text"
-                               class="form-control"
-                               name="BudgetCost"
-                               placeholder="项目编号" />
-                    </div>
-                    <span class="emMark">*</span>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">预算费用</label>
-                    <div class="col-sm-2">
-                        <input type="text"
-                               class="form-control"
-                               name="BudgetCost"
-                               placeholder="预算费用" />
-                    </div>
-                    <div class="col-sm-1">
-                        <p class="form-control-static">万元</p>
-                    </div>
-                    <span class="emMark">*</span>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">实际费用</label>
-                    <div class="col-sm-2">
-                        <input type="text"
-                               class="form-control"
-                               name="ActualCost"
-                               placeholder="实际费用" />
-                    </div>
-                    <div class="col-sm-1">
-                        <p class="form-control-static">万元</p>
-                    </div>
-                    <span class="emMark">*</span>
-                </div>
+	                <div class="form-group">
+	                    <label class="col-sm-2 control-label">项目编号</label>
+	                    <div class="col-sm-4">
+	                        <input type="text"
+	                               class="form-control"
+	                               name="BudgetCost"
+	                               placeholder="项目编号" />
+	                    </div>
+	                    <span class="emMark">*</span>
+	                </div>
+	                <div class="form-group">
+	                    <label class="col-sm-2 control-label">预算费用</label>
+	                    <div class="col-sm-2">
+	                        <input type="text"
+	                               class="form-control"
+	                               name="BudgetCost"
+	                               placeholder="预算费用" />
+	                    </div>
+	                    <div class="col-sm-1">
+	                        <p class="form-control-static">万元</p>
+	                    </div>
+	                    <span class="emMark">*</span>
+	                </div>
+	                <div class="form-group">
+	                    <label class="col-sm-2 control-label">实际费用</label>
+	                    <div class="col-sm-2">
+	                        <input type="text"
+	                               class="form-control"
+	                               name="ActualCost"
+	                               placeholder="实际费用" />
+	                    </div>
+	                    <div class="col-sm-1">
+	                        <p class="form-control-static">万元</p>
+	                    </div>
+	                    <span class="emMark">*</span>
+	                </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">附件</label>
                         <div class="col-sm-4">
-                            <input type="file" name="file"/>
+                            <div class="input-group attachText">
+                                <div class="form-control"></div>
+                                <a class="btn input-group-addon" type="button">
+                                    <span class="glyphicon glyphicon-folder-open"></span>
+                                    <input type="file" class="form-control" id="RepairAddFile" onchange="loadFile(this.files[0])" />
+                                    	上传</a>
+                            </div>
                         </div>
                     </div>
 

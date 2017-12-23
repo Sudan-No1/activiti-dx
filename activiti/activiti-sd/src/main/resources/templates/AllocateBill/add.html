@@ -2,10 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/Normalize.css"/>
     <link rel="stylesheet" href="/css/bootstrap.css"/>
     <link rel="stylesheet" href="/css/form.css"/>
-    <title>add</title>
+    <title>allocate-add</title>
 </head>
 <body>
     <div class="container">
@@ -169,22 +168,17 @@
                     </div>
 					
 					<div class="form-group">
-					    <label class="col-sm-2 control-label">附件</label>
-					    <div class="col-sm-4">
-					    <div class="attachText">
-					    	<div class="input-group">
-						        <div class="form-control"></div>
-						        <div class="input-group-btn">
-					            	<a class="btn btn-default">
-						            	<span class="glyphicon glyphicon-folder-open"></span>
-						                 	上传
-					            	</a>
-					            </div>
-					        </div>
-					        <input type="file" name="file" class="form-control" id="jobData" onchange="loadFile(this.files[0])" />
-					    </div>
-					    </div>
-					</div>
+                        <label class="col-sm-2 control-label">附件</label>
+                        <div class="col-sm-4">
+                            <div class="input-group attachText">
+                                <div class="form-control"></div>
+                                <a class="btn input-group-addon" type="button">
+                                    <span class="glyphicon glyphicon-folder-open"></span>
+                                    <input type="file" class="form-control" id="allocateAddFile" onchange="loadFile(this.files[0])" />
+                                    	上传</a>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
