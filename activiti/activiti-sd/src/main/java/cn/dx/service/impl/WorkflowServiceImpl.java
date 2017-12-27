@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 import java.util.zip.ZipInputStream;
 
 import javax.servlet.http.HttpSession;
@@ -203,11 +205,27 @@ public class WorkflowServiceImpl implements WorkflowService {
 			String assignee = (String)record.get("Assignee");
 			variables.put(taskname, assignee);
 		}
-		String areaLeader = (String)map.get("areaLeader");
-		String departmentLeader = (String)map.get("departmentLeader");
+		map.remove("Id");
+		map.remove("IdClass");
+		map.remove("Code");
+		map.remove("Description");
+		map.remove("Status");
+		map.remove("User");
+		map.remove("BeginDate");
+		map.remove("Notes");
+		map.remove("department");
+		Set<Entry<String, Object>> entrySet = map.entrySet();
+		for (Entry<String, Object> entry : entrySet) {
+			Object value = entry.getValue();
+			if(value != null && !"".equals(value)){
+				variables.put(entry.getKey(), entry.getValue());
+			}
+		}
+	/*	String areaLeader = (String)map.get("areaLeader");
+		String departmentLeader = (String)map.get("departmentLeader");*/
 		variables.put("Applicant", applicant);
-		variables.put("areaLeader", areaLeader);
-		variables.put("departmentLeader", departmentLeader);
+		/*variables.put("areaLeader", areaLeader);
+		variables.put("departmentLeader", departmentLeader);*/
 		// 格式：Leavebill.id的形式（使用流程变量）
 		String objId = key + "." + id;
 		variables.put("objId", objId);

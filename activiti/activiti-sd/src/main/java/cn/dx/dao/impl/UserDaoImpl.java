@@ -46,7 +46,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public Map<String, Object> findApprover(String unit_code) {
-		String sql = "select * from ur where \"department\" = ? and \"Status\" = 'A';";
+		String sql = "select * from ur where \"department\" = ? and  \"Status\" = 'A';";
 		return jdbcTemplate.queryForMap(sql,unit_code);
 	}
 

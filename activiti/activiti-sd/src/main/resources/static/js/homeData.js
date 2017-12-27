@@ -107,9 +107,15 @@ function taskListData(str){
 //	console.log(str);
 	for(var i = 0; i<=str.list.length-1; i++){
 		item = str.list[i];
-		if(item.taskFormKey.split("/")[1] == "AllocateBill"){
-			taskType = "房调流程";
+		var billName = item.taskFormKey.split("/")[1];
+		switch(billName){
+			case "AllocateBill":taskType = "房屋调配";break;
+			case "RepairBill":taskType = "房屋房修";break;
+			case "RentBill":taskType = "房屋房租";break;
 		}
+		/*if(item.taskFormKey.split("/")[1] == "AllocateBill"){
+			taskType = "房调流程";
+		}*/
 		tags += "<tr><td>" + item.taskId +
 		"</td><td>"+ taskType +
 		"</td><td>" + item.taskName +
@@ -133,9 +139,15 @@ function historyTaskListData(str){
 //	console.log(str);
 	for(var i = 0; i<=str.list.length-1; i++){
 		item = str.list[i];
-		if(item.businessKey.split(".")[0] == "AllocateBill"){
-			billDescription = "房屋调配";
+		var billName = item.businessKey.split(".")[0];
+		switch(billName){
+			case "AllocateBill":billDescription = "房屋调配";break;
+			case "RepairBill":billDescription = "房屋房修";break;
+			case "RentBill":billDescription = "房屋房租";break;
 		}
+		/*if(item.businessKey.split(".")[0] == "AllocateBill"){
+			billDescription = "房屋调配";
+		}*/
 		tags += "<tr><td>" + billDescription + 
 		"</td><td>" + item.currentUser + 
 		"</td><td>" + formatDateTime(item.startTime) +

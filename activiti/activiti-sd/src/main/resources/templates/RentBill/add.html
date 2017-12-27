@@ -25,7 +25,7 @@
 
                 <!--表单-->
 
-                <form class="form-horizontal" action="#" method="GET">
+                <form class="form-horizontal" action="/billController/addBill"  method="post" enctype="multipart/form-data">
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">发起人</label>
@@ -33,7 +33,7 @@
                             <input type="text"
                                    class="form-inp-static"
                                    name="Applicant"
-                                   value="张兰"
+                                   th:value="${username}"
                                    readonly/>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                             <input type="text"
                                    class="form-inp-static"
                                    name="Unit"
-                                   value="上海总部"
+                                   th:value="${unit}"
                                    readonly/>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                             <input type="text"
                                    class="form-inp-static"
                                    name="Department"
-                                   value="网络发展部"
+                                   th:value="${department}"
                                    readonly/>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                             <input type="text"
                                    class="form-inp-static"
                                    name="LaunchDate"
-                                   value="2017-11-17"
+                                   th:value="${launchDate}"
                                    readonly/>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                             <input type="text"
                                    class="form-inp-static"
                                    name="Description"
-                                   value="2017XXXX294"
+                                   th:value="${description}"
                                    readonly/>
                         </div>
                     </div>
@@ -109,13 +109,13 @@
                         <div class="col-sm-3">
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="rentNature" value="charterIn"  />
+                                    <input type="radio" name="RentNature" value="租入"  />
                                     租入
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="rentNature" value="rentOut" />
+                                    <input type="radio" name="RentNature" value="租出" />
                                     租出
                                 </label>
                             </div>
@@ -128,13 +128,13 @@
                         <div class="col-sm-3">
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="yearPlan" value="true"  />
+                                    <input type="radio" name="RentPlan" value="true"  />
                                     是
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="yearPlan" value="false" />
+                                    <input type="radio" name="RentPlan" value="false" />
                                     否
                                 </label>
                             </div>
@@ -146,13 +146,13 @@
                         <div class="col-sm-3">
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="rentType" value="businessHall" />
+                                    <input type="radio" name="classification" value="营业厅" />
                                     营业厅
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="rentType" value="nonBusinessHall" />
+                                    <input type="radio" name="classification" value="非营业厅" />
                                     非营业厅
                                 </label>
                             </div>
@@ -163,7 +163,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">房屋用途</label>
                         <div class="col-sm-4">
-                            <select name="Purpose" class="form-control">
+                            <select name="RoomPurpose" class="form-control">
                                 <option value="0">请选择房屋用途</option>
                             </select>
                         </div>
@@ -173,7 +173,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">房屋名称</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" name="Name" placeholder="房屋名称" />
+                            <input type="text" class="form-control" name="RoomName" placeholder="房屋名称" />
                         </div>
                         <span class="emMark">*</span>
                     </div>
@@ -181,7 +181,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">房屋地址</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" name="Address" placeholder="房屋地址" />
+                            <input type="text" class="form-control" name="RoomAddress" placeholder="房屋地址" />
                         </div>
                         <span class="emMark">*</span>
                     </div>
@@ -189,7 +189,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">房屋租赁面积</label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" name="rentArea" />
+                            <input type="text" class="form-control" name="RoomArea" />
                         </div>
                         <div class="col-sm-1">
                             <p class="form-control-static"> 平方米 </p>
@@ -200,7 +200,7 @@
                     <div class="form-group ">
                         <label class="col-sm-2 control-label">房屋租赁单价</label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" name="rentUnitPrice" />
+                            <input type="text" class="form-control" name="RoomPrice" />
                         </div>
                         <div class="col-sm-2">
                             <p class="form-control-static"> 元/平方米/天 </p>
@@ -211,7 +211,7 @@
                     <div class="form-group ">
                         <label class="col-sm-2 control-label">房屋租赁评估单价</label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" name="rentAssessUnitPrice" />
+                            <input type="text" class="form-control" name="RoomEvaluationPrice" />
                         </div>
                         <div class="col-sm-2">
                             <p class="form-control-static"> 元/平方米/天 </p>
@@ -224,13 +224,13 @@
                             <input type="text"
                                    class="form-control formDateStart"
                                    size="16"
-                                   name="startTime"
+                                   name=""
                                    value=""
                                    data-date-format="yyyy-mm-dd"
                                    data-link-field="dtpInp1"
                                    data-link-format="yyyy-mm-dd"/>
                         </div>
-                        <input type="hidden" id="dtpInp1" value="" />
+                        <input name="RoomRentBegindate" type="hidden" id="dtpInp1" value="" />
                     </div>
 
                     <div class="form-group">
@@ -239,13 +239,13 @@
                             <input type="text"
                                    class="form-control formDateEnd"
                                    size="16"
-                                   name="endTime"
+                                   name=""
                                    value=""
                                    data-date-format="yyyy-mm-dd"
                                    data-link-field="dtpInp2"
                                    data-link-format="yyyy-mm-dd" />
                         </div>
-                        <input type="hidden" id="dtpInp2" value="" />
+                        <input name="RoomRentEnddate" type="hidden" id="dtpInp2" value="" />
                     </div>
 
                     <div class="form-group">
@@ -253,7 +253,7 @@
                         <div class="col-sm-2">
                             <input type="text"
                                    class="form-control"
-                                   name="annualRent"
+                                   name="RoomRentYearMoney"
                                    placeholder="房屋租赁年租金" />
                         </div>
                         <div class="col-sm-1">
@@ -267,7 +267,7 @@
                         <div class="col-sm-2">
                             <input type="text"
                                    class="form-control"
-                                   name="leaseContractMoney"
+                                   name="RoomRentContractMoney"
                                    placeholder="房屋租赁合同金额" />
                         </div>
                         <div class="col-sm-2">
@@ -281,7 +281,7 @@
                         <div class="col-sm-7">
                             <textarea class="form-control"
                                       id="remarks"
-                                      name="comment"
+                                      name="DemandRemark"
                                       rows="3"
                                       placeholder="请输入您的意见"></textarea>
                         </div>
@@ -303,9 +303,13 @@
 
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <a href="javaScript:;" class="btn btn-default">提交</a>
+                        	<input type="submit" class="btn btn-default" onclick="checkout()" value="提交申请">
                         </div>
                     </div>
+                    <input type="hidden" name="billName" value="RentBill"><br>
+                    <input type="hidden" name="BillDescription" value="房租流程"><br>
+                    <input type="hidden" name="conditionName" value="flag,RoomRentYearMoney"><br>
+                    <input id="flag" type="hidden" name="flag" value="" /><br>
                 </form>
 
             </div>
@@ -380,8 +384,23 @@
     <script src="/js/bootstrap-datetimepicker.min.js"></script>
     <script src="/js/bootstrap-datetimepicker.fr.js"></script>
     <script src="/js/form/rentBillHtml.js"></script>
-    <script>
-
+    <script th:inline="javascript">
+    function checkout(){
+    	var rentNature = $(":radio:checked[name='RentNature']").val();
+    	var actualPrice = $("input[name='RoomPrice']").val();
+    	var evaluationPrice = $("input[name='RoomEvaluationPrice']").val();
+    	var flag = null;
+    	 if(rentNature == "租入"){
+    		 flag = (actualPrice <= evaluationPrice)
+    	 }else if(rentNature == "租出"){
+    		 flag = (actualPriDce >= evaluationPrice)
+    	 }
+    	$("input[name='flag']").val(flag)
+    }
+    
+    function loadFile(file){
+        $(".attachText div.form-control").text(file.name);
+    }
         function loadFile(file){
             $(".attachText div").text(file.name);
         }

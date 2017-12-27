@@ -20,22 +20,14 @@
                     <div class="form-group col-sm-5">
                         <label class="col-sm-6 control-label">发起人</label>
                         <div class="col-sm-6">
-                            <input type="text"
-                                   class="form-inp-static"
-                                   name="Applicant"
-                                   th:value="${username}"
-                                   readonly/>
+                        	<p class="form-control-static" th:text="${bill.Applicant }"></p>
                         </div>
                     </div>
 
                     <div class="form-group col-sm-7">
                         <label class="col-sm-3 control-label">房屋名称</label>
                         <div class="col-sm-8">
-                            <input type="text"
-                                   class="form-inp-static"
-                                   name="Name"
-                                   th:value="${name}"
-                                   readonly/>
+                             <p class="form-control-static" th:text="${bill.RoomName }"></p>
                         </div>
                     </div>
                 </div>
@@ -44,22 +36,14 @@
                     <div class="form-group col-sm-5">
                         <label class="col-sm-6 control-label">发起单位</label>
                         <div class="col-sm-6">
-                            <input type="text"
-                                   class="form-inp-static"
-                                   name="Unit"
-                                   th:value="${unit}"
-                                   readonly/>
+                            <p class="form-control-static" th:text="${bill.Unit }"></p>
                         </div>
                     </div>
 
                     <div class="form-group col-sm-7">
                         <label class="col-sm-3 control-label">房屋地址</label>
                         <div class="col-sm-8">
-                            <input type="text"
-                                   class="form-inp-static"
-                                   name="Address"
-                                   th:value="${houseAddress}"
-                                   readonly/>
+                            <p class="form-control-static" th:text="${bill.RoomAddress }"></p>
                         </div>
                     </div>
                 </div>
@@ -68,22 +52,14 @@
                     <div class="form-group col-sm-5">
                         <label class="col-sm-6 control-label">发起部门</label>
                         <div class="col-sm-6">
-                            <input type="text"
-                                   class="form-inp-static"
-                                   name="Department"
-                                   th:value="${department}"
-                                   readonly/>
+                            <p class="form-control-static" th:text="${bill.Department }"></p>
                         </div>
                     </div>
 
                     <div class="form-group col-sm-7">
                         <label class="col-sm-3 control-label">房屋租赁面积</label>
                         <div class="col-sm-8">
-                            <input type="text"
-                                   class="form-inp-static"
-                                   name="rentArea"
-                                   th:value="${rentArea}"
-                                   readonly/>
+                            <p class="form-control-static" th:text="${bill.RoomArea }"></p>
                         </div>
                     </div>
                 </div>
@@ -92,22 +68,14 @@
                     <div class="form-group col-sm-5">
                         <label class="col-sm-6 control-label">发起日期</label>
                         <div class="col-sm-6">
-                            <input type="text"
-                                   class="form-inp-static"
-                                   name="LaunchDate"
-                                   th:value="${launchDate}"
-                                   readonly/>
+                            <p class="form-control-static" th:text="${bill.LaunchDate }"></p>
                         </div>
                     </div>
 
                     <div class="form-group col-sm-7">
                         <label class="col-sm-3 control-label">房屋租赁单价</label>
                         <div class="col-sm-8">
-                            <input type="text"
-                                   class="form-inp-static"
-                                   name="rentUnitPrice"
-                                   th:value="${rentUnitPrice}"
-                                   readonly/>
+                           <p class="form-control-static" th:text="${bill.RoomPrice }"></p>
                         </div>
                     </div>
                 </div>
@@ -116,22 +84,14 @@
                     <div class="form-group col-sm-5">
                         <label class="col-sm-6 control-label">编号</label>
                         <div class="col-sm-6">
-                            <input type="text"
-                                   class="form-inp-static"
-                                   name="Description"
-                                   th:value="${description}"
-                                   readonly/>
+                            <p class="form-control-static" th:text="${bill.Description }"></p>
                         </div>
                     </div>
 
                     <div class="form-group col-sm-7">
                         <label class="col-sm-3 control-label">房屋评估单价</label>
                         <div class="col-sm-8">
-                            <input type="text"
-                                   class="form-inp-static"
-                                   name="rentAssessUnitPrice"
-                                   th:value="${rentAssessUnitPrice}"
-                                   readonly/>
+                           <p class="form-control-static" th:text="${bill.RoomEvaluationPrice }"></p>
                         </div>
                     </div>
                 </div>
@@ -140,22 +100,14 @@
                     <div class="form-group col-sm-5">
                         <label class="col-sm-6 control-label">联系人</label>
                         <div class="col-sm-6">
-                            <input type="text"
-                                   class="form-inp-static"
-                                   name="Contact"
-                                   th:value="${Contact}"
-                                   readonly/>
+                           <p class="form-control-static" th:text="${bill.Contact }"></p>
                         </div>
                     </div>
 
                     <div class="form-group col-sm-7">
                         <label class="col-sm-3 control-label">房屋租赁开始日期</label>
                         <div class="col-sm-3">
-                            <input type="text"
-                                   class="form-inp-static"
-                                   name="startTime"
-                                   th:value="${startTime}"
-                                   readonly/>
+                            <p class="form-control-static" th:text="${bill.RoomRentBegindate }"></p>
                         </div>
                     </div>
 
@@ -165,22 +117,14 @@
                     <div class="form-group col-sm-5">
                         <label class="col-sm-6 control-label">联系方式</label>
                         <div class="col-sm-6">
-                            <input type="tel"
-                                   class="form-inp-static"
-                                   name="ContactNo"
-                                   th:value="${ContactNo}"
-                                   readonly/>
+                            <p class="form-control-static" th:text="${bill.ContactNo }"></p>
                         </div>
                     </div>
 
                     <div class="form-group col-sm-7">
                         <label class="col-sm-3 control-label">房屋租赁结束日期</label>
                         <div class="col-sm-3">
-                            <input type="text"
-                                   class="form-inp-static"
-                                   name="endTime"
-                                   th:value="${endTime}"
-                                   readonly/>
+                            <p class="form-control-static" th:text="${bill.RoomRentEnddate }"></p>
                         </div>
                     </div>
                 </div>
@@ -189,22 +133,14 @@
                     <div class="form-group col-sm-5">
                         <label class="col-sm-6 control-label">分类</label>
                         <div class="col-sm-6">
-                            <input type="text"
-                                   class="form-inp-static"
-                                   name="rentType"
-                                   th:value="${rentType}"
-                                   readonly/>
+                            <p class="form-control-static" th:text="${bill.classification }"></p>
                         </div>
                     </div>
 
                     <div class="form-group col-sm-7">
                         <label class="col-sm-3 control-label">房屋租赁年租金</label>
                         <div class="col-sm-8">
-                            <input type="text"
-                                   class="form-inp-static"
-                                   name="annualRent"
-                                   th:value="${annualRent}+'万元'"
-                                   readonly/>
+                            <p class="form-control-static" th:text="${bill.RoomRentYearMoney }"></p>
                         </div>
 
                     </div>
@@ -214,22 +150,14 @@
                     <div class="form-group col-sm-5">
                         <label class="col-sm-6 control-label">房屋用途</label>
                         <div class="col-sm-6">
-                            <input type="text"
-                                   class="form-inp-static"
-                                   name="Purpose"
-                                   th:value="${Purpose}"
-                                   readonly/>
+                            <p class="form-control-static" th:text="${bill.RoomPurpose }"></p>
                         </div>
                     </div>
 
                     <div class="form-group col-sm-7">
                         <label class="col-sm-3 control-label">房屋租赁合同金额</label>
                         <div class="col-sm-8">
-                            <input type="text"
-                                   class="form-inp-static"
-                                   name="leaseContractMoney"
-                                   th:value="${leaseContractMoney}+' 元/平方米/天'"
-                                   readonly/>
+                            <p class="form-control-static" th:text="${bill.RoomRentContractMoney }"></p>
                         </div>
                     </div>
                 </div>
@@ -238,22 +166,14 @@
                     <div class="form-group col-sm-5">
                         <label class="col-sm-6 control-label">租赁性质</label>
                         <div class="col-sm-6">
-                            <input type="text"
-                                   class="form-inp-static"
-                                   name="rentNature"
-                                   th:value="${rentNature}"
-                                   readonly />
+                            <p class="form-control-static" th:text="${bill.RentNature }"></p>
                         </div>
                     </div>
 
                     <div class="form-group col-sm-7">
                         <label class="col-sm-3 control-label">需求情况说明</label>
                         <div class="col-sm-8">
-                            <input type="text"
-                                   class="form-inp-static"
-                                   name="comment"
-                                   th:value="${comment}"
-                                   readonly />
+                            <p class="form-control-static" th:text="${bill.DemandRemark }"></p>
                         </div>
                     </div>
                 </div>
@@ -262,11 +182,7 @@
                     <div class="form-group col-sm-5">
                         <label class="col-sm-6 control-label">同区域是否有闲置房屋</label>
                         <div class="col-sm-6">
-                            <input type="text"
-                                   class="form-inp-static"
-                                   name="samePositionIdle"
-                                   th:value="${samePositionIdle}"
-                                   readonly />
+                            <p class="form-control-static" th:text="${bill.HasRoom }"></p>
                         </div>
                     </div>
 
@@ -288,11 +204,7 @@
                     <div class="form-group col-sm-5">
                         <label class="col-sm-6 control-label">后续经营模式</label>
                         <div class="col-sm-6">
-                            <input type="text"
-                                   class="form-inp-static"
-                                   name="FollowUpMode"
-                                   th:value="${FollowUpMode}"
-                                   readonly>
+                            <p class="form-control-static" th:text="${bill.BusinessModel }"></p>
                         </div>
                     </div>
                 </div>
@@ -300,18 +212,17 @@
 
             <hr>
 
-            <h3>您的意见</h3>
+           <h3>您的意见</h3>
             <!--表单-->
-            <form class="form-horizontal" action="#" method="post">
-                <input type="hidden" name="taskId" value=""/>
-                <input type="hidden" name="id" value=""/>
-                <input type="hidden" name="billName" value="RentBill" />
-                <input type="hidden" name="nextGroup" value="" />
+            <form class="form-horizontal" action="/workflow/submitTask" method="post">
+				<input type="hidden" id="taskId" name="taskId" th:value="${taskId }" />
+				<input type="hidden" id="id" name="id" th:value="${bill.Id }" /> 
+				<input type="hidden" id="billName" name="billName" th:value="${bill.IdClass }" /> 
                 <div class="form-group">
                     <label class="col-sm-2 control-label">意见</label>
                     <div class="col-sm-3">
                         <select class="form-control" name="outcome">
-                            <option value="" selected disabled>请选择您的意见</option>
+                            <option value="" selected>请选择您的意见</option>
                             <option value="同意">同意</option>
                             <option value="不同意">不同意</option>
                         </select>
@@ -321,44 +232,39 @@
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-7">
                         <textarea class="form-control"
+                                  id="remarks"
                                   name="comment"
                                   rows="3"
                                   placeholder="请输入您的意见"></textarea>
-
+                        
                     </div>
                 </div>
-
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <input type="submit" class="btn btn-default" value="提交" />
+                	<div class="col-sm-2" ></div>
+                    <div class="col-sm-2">
+						<input type="submit" value="提交" class="btn btn-default" >
                     </div>
                 </div>
-
             </form>
 
             <hr>
 
-            <h3>审批记录</h3>
+           <h3>审批记录</h3>
             <table class="table table-hover table-bordered" style="width:95%;margin:15px auto">
-                <thead>
-                <tr class="info">
-                    <th width="15%">审批人</th>
-                    <th width="15%">审批时间</th>
-                    <th width="70%">审批意见</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>陈修风 <small>部门经理</small></td>
-                    <td> 2017-11-16 </td>
-                    <td>【同意】 领导意导意，领导意见领导意见领导意见。</td>
-                </tr>
-                <tr>
-                    <td>章成 <small>处室领导</small></td>
-                    <td> 2017-11-15 </td>
-                    <td>【同意】 领导意见领导意见领导意，领导意见领导意见领导意见领导意见领导意见。</td>
-                </tr>
-                </tbody>
+            	<thead>
+            		<tr class="info">
+            		<th width="10%">审批人</th>
+            		<th width="20%">审批时间</th>
+            		<th>审批意见</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr th:each="comment: ${commentList}" >
+            			<td th:text="${comment.userId }"></td>	
+            			<td th:text="${#dates.format(comment.time, 'yyyy-MM-dd HH:mm:ss')}"></td>	
+            			<td th:text="${comment.fullMessage }"></td>	
+            		</tr>
+            	</tbody>
             </table>
         </div>
     </div>
